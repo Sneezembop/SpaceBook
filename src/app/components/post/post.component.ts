@@ -89,21 +89,16 @@ export class PostComponent implements OnInit {
     this.userService.findUserByUsername(name)
       .subscribe((user) => {
         if (user) {
-          console.log('user', user);
           this.router.navigate(['user/' + user._id]);
         } else {
           this.ceService.findCEbyText(name)
             .subscribe((ce) => {
               if (ce.length > 0) {
-                console.log('ce', ce);
-                console.log('id', ce[0]._id)
                 this.router.navigate(['ce/', ce[0]._id]);
               } else {
                 this.cBService.findCBbyText(name)
                   .subscribe((cb) => {
                     if (cb.length > 0) {
-                      console.log('cb', cb[0]._id);
-                      console.log('id', cb[0]._id)
                       this.router.navigate(['cb/', cb[0]._id]);
                     }
                   });

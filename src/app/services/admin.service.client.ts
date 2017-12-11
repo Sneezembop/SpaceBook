@@ -13,7 +13,6 @@ export class AdminServiceClient implements CanActivate{
   constructor(private http: Http, private router: Router, private sharedService: SharedService,
               private userService: UserService) {}
   canActivate() {
-    console.log('HELLO', this.userService.isAdmin());
     return this.userService.isAdmin();
   }
 }

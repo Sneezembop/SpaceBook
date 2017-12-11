@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {CEService} from "../../../services/ce.service.client";
-import {ActivatedRoute, Router} from "@angular/router";
-import {SharedService} from "../../../services/shared.service.client";
+import {CEService} from '../../../services/ce.service.client';
+import {ActivatedRoute, Router} from '@angular/router';
+import {SharedService} from '../../../services/shared.service.client';
 
 @Component({
   selector: 'app-edit-celestial-event-object',
@@ -34,7 +34,7 @@ export class EditCelestialEventObjectComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.params
       .subscribe((params: any) => {
-        // this.ceId = "5a2dc1d485be02065cc2f846";
+        // this.ceId = '5a2dc1d485be02065cc2f846';
         this.ceId = params['objId'];
       });
     this.ceService.findCEbyId(this.ceId)
@@ -48,7 +48,6 @@ export class EditCelestialEventObjectComponent implements OnInit {
         this.start = ce['start'];
         this.end = ce['end'];
       });
-    console.log(this.sharedService.user);
   }
 
   deletecb() {

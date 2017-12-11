@@ -28,7 +28,7 @@ export class PostListComponent implements OnInit {
   }
 
   /**
-   * Right now this deletes post. Will have to refactor this to just simply update the post without one's tag later.
+   * Right now this is not used, maybe can be implemented for admins?
    * @param ID
    */
   removeMyTag(ID) {
@@ -42,29 +42,3 @@ export class PostListComponent implements OnInit {
   }
 
 }
-
-  // this.route.params.subscribe(params => {
-    //   this.userId = params['uid'];
-    //   console.log('Post-list: userId is: ', this.userId);
-    // });
-  //   this.postService.findPostsByUser(this.IDfromProfile)
-  //     .subscribe((posts) => {
-  //       this.posts = posts;
-  //       console.log('Post-list: posts are: ', posts);
-  //     });
-  // }}
-
-//
-// findPostsByTag(ID) {
-//   this.postService.findPostsbyTag(this.ID)
-//     .subscribe((posts) => {
-//       this.posts = posts;
-//     });
-// }
-//
-// findPostsByTags(any) {
-//   this.postService.findPostsbyTags(any)
-//     .subscribe((posts) => {
-//       this.posts = posts;
-//     });
-// }

@@ -34,7 +34,6 @@ export class EditCelestialBodyObjectComponent implements OnInit {
       });
     this.cbService.findCBbyId(this.cbId)
       .subscribe((cb: any) => {
-      console.log(cb);
         this.cb = cb;
         this.cbName = cb['name'];
         this.cbRegion = cb['region'];

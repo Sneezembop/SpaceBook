@@ -22,13 +22,13 @@ import {AlbumListComponent} from './components/album/album-list/album-list.compo
 import {CreateObjectComponent} from './components/create-object/create-object.component';
 import {AuthGuard} from './services/auth-guard.service.client';
 import {HomepageComponent} from './components/homepage/homepage.component';
-import {EditObjectComponent} from "./components/edit-object/edit-object.component";
-import {EditUserObjectComponent} from "./components/edit-object/edit-user-object/edit-user-object.component";
-import {EditCelestialEventObjectComponent} from "./components/edit-object/edit-celestial-event-object/edit-celestial-event-object.component";
-import {EditCelestialBodyObjectComponent} from "./components/edit-object/edit-celestial-body-object/edit-celestial-body-object.component";
-import {EditPublicationObjectComponent} from "./components/edit-object/edit-publication-object/edit-publication-object.component";
-import {AdminUserListComponent} from "./components/admin-user-list/admin-user-list.component";
-import {AdminServiceClient} from "./services/admin.service.client";
+import {EditObjectComponent} from './components/edit-object/edit-object.component';
+import {EditUserObjectComponent} from './components/edit-object/edit-user-object/edit-user-object.component';
+import {EditCelestialEventObjectComponent} from './components/edit-object/edit-celestial-event-object/edit-celestial-event-object.component';
+import {EditCelestialBodyObjectComponent} from './components/edit-object/edit-celestial-body-object/edit-celestial-body-object.component';
+import {EditPublicationObjectComponent} from './components/edit-object/edit-publication-object/edit-publication-object.component';
+import {AdminUserListComponent} from './components/admin-user-list/admin-user-list.component';
+import {AdminServiceClient} from './services/admin.service.client';
 
 
 const APP_ROUTES: Routes = [

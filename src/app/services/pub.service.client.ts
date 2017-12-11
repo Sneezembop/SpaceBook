@@ -41,7 +41,6 @@ export class PubService {
   }
 
   updatePub(pubId: String, pub: any) {
-    console.log('IN SERVICE', pubId);
     const url = this.baseURL + '/api/pub/' + pubId;
     return this.http.put(url, pub)
       .map((response: Response) => {

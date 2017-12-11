@@ -54,7 +54,6 @@ export class PublicProfileComponent implements OnInit {
     this.sharedServiceUserId = this.user._id;
     this.currentURL = window.location.href;
     if (this.currentURL.includes('api/login')) {
-      console.log('entered the flipper trigger');
       this.flipper = false;
     }
     if (this.user.username === undefined) {
@@ -121,10 +120,8 @@ export class PublicProfileComponent implements OnInit {
 
 
   getCBData(objId) {
-    console.log('HELLO CB');
     this.cbService.findCBbyId(this.objId).subscribe((cb: any) => {
       this.objData = cb;
-      console.log(this.objData['picture']);
       this.follows = [];
       this.findPostsForNonUserDataByTag();
       this.dataReady = true;
@@ -212,10 +209,7 @@ export class PublicProfileComponent implements OnInit {
    * user has multiple albums and then deletes the first one, otherwise appears to function.
    */
   prepAlbum() {
-    console.log('prepping album', this.albumid);
     if (this.user.albums.length > 0) {
-      console.log('there is an album');
-      console.log('album', this.user.albums[0]);
       this.albumid = this.user.albums[0];
       this.albumReady = true;
     }

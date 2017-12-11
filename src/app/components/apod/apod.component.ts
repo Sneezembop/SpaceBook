@@ -21,7 +21,6 @@ export class ApodComponent implements OnInit {
         this.result = result;
         this.gotResult = true;
         this.url = result.hdurl;
-        console.log(result);
       });
   }
 

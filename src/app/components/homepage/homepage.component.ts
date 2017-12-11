@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {SharedService} from "../../services/shared.service.client";
-import {ActivatedRoute, Router} from "@angular/router";
-import {UserService} from "../../services/user.service.client";
+import {SharedService} from '../../services/shared.service.client';
+import {ActivatedRoute, Router} from '@angular/router';
+import {UserService} from '../../services/user.service.client';
 
 @Component({
   selector: 'app-homepage',
@@ -26,7 +26,6 @@ export class HomepageComponent implements OnInit {
               this.loggedIn = bool;
             });
         });
-    console.log('IN HOMEPAGE', this.sharedService.user);
   }
 
   continueToSpaceBook() {
