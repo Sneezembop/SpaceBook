@@ -33,7 +33,6 @@ module.exports = function (app) {
 
   function updatePub(req, res) {
     var pubId = req.params['pubid'];
-    console.log('IN SERVER', pubId);
     var updatedPub = req.body;
     pubModel
       .updatePub(pubId, updatedPub)

@@ -22,7 +22,6 @@ export class PostService {
 
   createPost(post: any) {
     const url = this.baseURL + '/api/post';
-    console.log('create post from client', post);
     return this.http.post(url, post)
       .map((response: Response) => {
         return response.json();
@@ -30,7 +29,6 @@ export class PostService {
   }
 
   findPostsByUser(userId: String) {
-    console.log('userId from post client: ', userId);
     const url = this.baseURL + '/api/post/user/' + userId;
     return this.http.get(url)
       .map((response: Response) => {
@@ -55,7 +53,6 @@ export class PostService {
   }
 
   findPostsbyTags(tags: [String]) {
-    console.log(tags);
     const url = this.baseURL + '/api/post?tags=' + tags;
     return this.http.get(url)
       .map((response: Response) => {

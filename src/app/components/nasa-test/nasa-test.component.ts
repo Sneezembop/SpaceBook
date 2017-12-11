@@ -18,7 +18,7 @@ export class NasaTestComponent implements OnInit {
   close_approach_data: {};
   estimated_diameter: {};
 
-  //orbital_data
+  // orbital_data
   aphelion_distance: String;
   ascending_node_longitude: String;
   eccentricity: String;

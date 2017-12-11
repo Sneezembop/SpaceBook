@@ -59,25 +59,19 @@ export class CreatePostComponent implements OnInit {
   addTag() {
     this.userService.findUserByUsername(this.tag)
       .subscribe((user) => {
-        console.log('user', user);
         if (user) {
-          console.log('user', user);
-          console.log('this is a user');
           this.tags.push(this.tag);
           this.tag = null;
         } else {
           this.cbService.findCBbyText(this.tag)
             .subscribe((cb) => {
               if (cb.length > 0) {
-                console.log('cb', cb);
-                console.log('this is a cb');
                 this.tags.push(this.tag);
                 this.tag = null;
               } else {
                 this.ceService.findCEbyText(this.tag)
                   .subscribe((ce) => {
                     if (ce.length > 0) {
-                      console.log('this is a ce');
                       this.tags.push(this.tag);
                       this.tag = null;
                     } else {
@@ -105,41 +99,3 @@ export class CreatePostComponent implements OnInit {
 
 
 }
-
-
-// addTag() {
-//   const startLength = this.tags.length;
-//   var userServiceFinished = false;
-//   var ceServiceFinished = false;
-//   var cbServiceFinished = false;
-//   this.userService.findUserByUsername(this.tag)
-//     .subscribe((user) => {
-//       console.log('user', user);
-//       if (user) {
-//         console.log('user', user);
-//         console.log('this is a user');
-//         this.tags.push(this.tag);
-//         this.tag = null;
-//       }
-//       userServiceFinished = true;
-//     });
-//   this.cbService.findCBbyText(this.tag)
-//     .subscribe((cb) => {
-//       if (cb) {
-//         console.log('cb', cb);
-//         console.log('this is a cb');
-//         this.tags.push(this.tag);
-//         this.tag = null;
-//       }
-//       cbServiceFinished = true;
-//     });
-//   this.ceService.findCEbyText(this.tag)
-//     .subscribe((ce) => {
-//       if (ce) {
-//         console.log('this is a ce');
-//         this.tags.push(this.tag);
-//         this.tag = null;
-//       }
-//       ceServiceFinished = true;
-//     });
-// }

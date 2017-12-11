@@ -49,7 +49,6 @@ export class SearchComponent implements OnInit {
   search(param: string) {
     this.searchResultString = '' ;
     this.userResult = [];
-    console.log('searching for', param) ;
     this.searchparam = param;
     this.userService.findUserByUsername(param).subscribe((response: any) => {
       if (response != null) {
@@ -75,7 +74,6 @@ export class SearchComponent implements OnInit {
         this.ceResult = response;
         this.ceReady = true;
         const temp = response.length;
-        console.log('Found this many CE:' +  temp.toString());
       }
     });
     this.pubService.findPubbyText(param).subscribe((response: any) => {
@@ -83,7 +81,6 @@ export class SearchComponent implements OnInit {
         this.pubResult = response;
         this.pubReady = true;
         const temp = response.length;
-        console.log('Found this many Pub:' +  temp.toString());
       }
     });
 

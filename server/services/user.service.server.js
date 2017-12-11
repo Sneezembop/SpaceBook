@@ -9,17 +9,17 @@ module.exports = function (app) {
   var FacebookStrategy = require('passport-facebook').Strategy;
   var IDTempFromFacebook;
 
-  // var facebookConfig = {
-  //   clientID     : process.env.FACEBOOK_CLIENT_ID,
-  //   clientSecret : process.env.FACEBOOK_CLIENT_SECRET,
-  //   callbackURL  : process.env.FACEBOOK_CALLBACK_URL
-  // };
-
   var facebookConfig = {
-    clientID     : '386216858483994',
-    clientSecret : '51788016e1118b1991b19b8a0c923180',
-    callbackURL  : 'http://localhost:3100/api/facebook/oauth2callback'
+    clientID     : process.env.FACEBOOK_CLIENT_ID,
+    clientSecret : process.env.FACEBOOK_CLIENT_SECRET,
+    callbackURL  : process.env.FACEBOOK_CALLBACK_URL
   };
+
+  // var facebookConfig = {
+  //   clientID     : '386216858483994',
+  //   clientSecret : '51788016e1118b1991b19b8a0c923180',
+  //   callbackURL  : 'http://localhost:3100/api/facebook/oauth2callback'
+  // };
 
   passport.use(new FacebookStrategy(facebookConfig, facebookStrategy));
 
@@ -94,7 +94,6 @@ module.exports = function (app) {
       .findUserByUsername(username)
       .then(function (user) {
         if(user && bcrypt.compareSync(password, user.password)) {
-          console.log('here I am');
           return done(null, user);
         } else {
           return done(null, false);
@@ -104,12 +103,10 @@ module.exports = function (app) {
 
   function facebookStrategy(token, refreshToken,
                             profile, done) {
-    console.log('entering facebook strategy');
     userModel
       .findUserByFacebookId(profile.id)
       .then(function(user) {
         if(user) {
-          console.log('facebook ID is: ', user._id);
           IDTempFromFacebook = user._id;
           return done(null, user);
         } else { // if not, insert into db using profile info
@@ -126,7 +123,6 @@ module.exports = function (app) {
       })
       .then(
         function(user){
-          console.log('2 facebook ID is: ', user._id);
           IDTempFromFacebook = user._id;
           return done(null, user);
         }
@@ -221,33 +217,4 @@ module.exports = function (app) {
       });
   }
 
-  // function uploadProfilePicture(req, res) {
-  //   var myFile = req.file;
-  //   var userId = req.body.userId;
-  //
-  //   console.log('IN UPLOAD PROFILE IN SERVER.SERVICE');
-  //
-  //   var originalname = myFile.originalname;
-  //   var filename = myFile.filename;
-  //   var path = myFile.path;
-  //   var destination = myFile.destination;
-  //   var size = myFile.size;
-  //   var mimetype = myFile.mimetype;
-  //   var user1 = null;
-  //   userModel
-  //     .findUserById(userId)
-  //     .then(function (user) {
-  //       user1 = user;
-  //       user['picture'] = '/assets/uploads/' + filename;
-  //       userModel
-  //         .updateUser(userId, user1)
-  //         .then(function (usr) {
-  //           console.log(usr);
-  //           var callbackUrl =  '/user/' + userId;
-  //           usr.save();
-  //           res.redirect(callbackUrl);
-  //         });
-  //     });
-  //
-  // }
 };

@@ -89,7 +89,7 @@ export class CreateObjectComponent implements OnInit {
       this.ce.end = this.createForm.value.ceend;
       this.ceService.findCEbyText(this.ce.name)
         .subscribe((ce: any) => {
-          if(ce.length !== 0) {
+          if (ce.length !== 0) {
             this.errorFlag = true;
             this.errorMessage = 'Celestial Event Already Exists!';
           } else {
@@ -111,7 +111,7 @@ export class CreateObjectComponent implements OnInit {
         alert('Pub created!');
       });
     } else {
-      console.log('cant make one of those yet');
+      // console.log('cant make one of those yet');
     }
   }
 

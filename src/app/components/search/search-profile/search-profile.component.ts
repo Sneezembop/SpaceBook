@@ -36,7 +36,6 @@ export class SearchProfileComponent implements OnInit {
   }
 
   addToFollow(userId) {
-    console.log(userId);
     if (userId === this.originalUserId) {
       this.errorFlag = true;
       this.errorMessage = 'You cannot follow yourself!';
@@ -57,10 +56,8 @@ export class SearchProfileComponent implements OnInit {
 
   sayHi() {
     if (this.user.username) {
-      console.log('attempting to route');
       this.router.navigate(['user/', this.userId]);
     } else {
-      console.log('attempting to else');
       const wishToLogin = window.confirm('You must sign in to view this page! Would you like to sign in?');
       if (wishToLogin === true) {
         this.router.navigate(['login']);

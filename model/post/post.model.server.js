@@ -39,8 +39,6 @@ function findAllPosts() {
 }
 
 function createPost(post) {
-  console.log('Model create post');
-  console.log('post', post);
   return PostModel.create(post);
 }
 

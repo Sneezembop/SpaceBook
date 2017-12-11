@@ -34,15 +34,12 @@ export class SearchCbComponent implements OnInit {
     this.name = this.cb.name;
     this.cbId = this.cb._id;
     this.errorFlag = false;
-    console.log(this.picture);
   }
 
   sayHi() {
     if (this.user.username) {
-      console.log('attempting to route');
       this.router.navigate(['cb/', this.cbId]);
     } else {
-      console.log('attempting to else');
       const wishToLogin = window.confirm('You must sign in to view this page! Would you like to sign in?');
       if (wishToLogin === true) {
         this.router.navigate(['login']);

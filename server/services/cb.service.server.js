@@ -18,7 +18,6 @@ module.exports = function (app) {
   function findCBsByText(req, res) {
     var text = req.query['text'];
     cbModel.findCBsByText(text).then(function (cbs) {
-      console.log(cbs);
       res.json(cbs);
     });
   }
@@ -35,7 +34,6 @@ module.exports = function (app) {
   function updateCB(req, res) {
     var cbId = req.params['cbid'];
     var updatedCB = req.body;
-    console.log('UPDATED', updatedCB);
     cbModel
       .updateCB(cbId, updatedCB)
       .then(function (status) {

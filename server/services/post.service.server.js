@@ -19,24 +19,17 @@ module.exports = function (app) {
 
 
   function findPostsByUser(req, res) {
-    console.log('server: findPostByUser');
-    console.log('reqbody: ', req.body);
     var userId = req.params['uid'];
-    console.log('server userId: ', userId);
     postModel.findPostsByUser(userId).then(function(posts) {
       res.json(posts);
     });
   }
 
   function findPosts(req, res) {
-    console.log("entered the server Find Posts");
     var tag = req.query['tag'];
     var userId = req.params['uid'];
     var postId = req.params['pid'];
-    console.log('tag is ', tag);
-    console.log('userId is', userId);
     if (tag) {
-      console.log('we have a tag');
       postModel.findPostsByTag(tag).then(function (posts) {
         res.json(posts);
       });
@@ -48,13 +41,10 @@ module.exports = function (app) {
   }
 
   function createPost(req, res) {
-    console.log('entering server post');
     var post = req.body;
-    console.log('post from server', post);
     postModel
       .createPost(post)
       .then(function (post) {
-        console.log('inner consolelog from server', post);
         res.json(post);
       });
   }

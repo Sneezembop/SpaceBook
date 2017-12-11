@@ -23,7 +23,6 @@ export class EditObjectComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('IN EDIT');
     this.activatedRoute.params
       .subscribe((params: any) => {
         this.objectId = params['objId'];

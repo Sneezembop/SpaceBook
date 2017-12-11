@@ -27,7 +27,6 @@ function createAlbum(album) {
 }
 
 function findAlbumById(albumId) {
-  console.log(albumId);
   return AlbumModel.findById(albumId);
 }
 

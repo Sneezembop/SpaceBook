@@ -41,10 +41,8 @@ export class SearchCeComponent implements OnInit {
 
   sayHi() {
     if (this.user.username) {
-      console.log('attempting to route');
       this.router.navigate(['ce/', this.ceId]);
     } else {
-      console.log('attempting to else');
       const wishToLogin = window.confirm('You must sign in to view this page! Would you like to sign in?');
       if (wishToLogin === true) {
         this.router.navigate(['login']);
